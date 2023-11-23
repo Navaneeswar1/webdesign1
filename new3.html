@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <style>
+    /* Add this style to make the card size adapt to the content */
+    .card-container {
+      border: 3px solid #ff0000;
+      /* Add border to the container */
+      padding: 10px;
+      /* Add padding for better appearance */
+      display: flex;
+      flex-wrap: wrap;
+      /* Allow cards to wrap to the next line if necessary */
+      justify-content: flex-start;
+      /* Align cards to the start of the container */
+    }
+
+    .card {
+      /* Adjust the styles of the card as needed */
+      border: 1px solid #ff0000;
+      padding: 10px;
+      margin: 5px;
+      max-width: 200px;
+      /* Set maximum width for each card */
+      box-sizing: border-box;
+      /* Include padding and border in the total width */
+    }
+
+    /* Add this style to remove bullet points from list items */
+    ul {
+      list-style-type: none;
+      padding: 0;
+      /* Remove default padding */
+    }
+
+    /* Add this style to make the list items display horizontally */
+    ul.horizontal-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* Add this style to make each list item look like a chip */
+    ul.horizontal-list li {
+      background-color: #e0e0e0;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Add this style to create some spacing between the text and the close button */
+    ul.horizontal-list li .card-text {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+
+    <div class="container" style="margin: 0;">
+      <div class="row" style="margin:20px;">
+        <div class="col-md-3 mb-3">
+          <label for="textBox" class="form-label">Skill</label>
+        </div>
+        <div class="col-md-6 mb-3">
+          <input type="text" class="form-control textbox" id="textBox" aria-describedby="helpId" placeholder="">
+        </div>
+        <div class="col-md-3 mb-3">
+          <button type="button" class="btn btn-primary btn3" style="margin-bottom: 20px;">Add</button>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <!-- Apply the "horizontal-list" class to the list to make items display horizontally -->
+        <ul class="horizontal-list"></ul>
+      </div>
+    </div>
+
+
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      console.log("ready");
+
+      // Button Click Event - Append Text from TextBox to List
+      $(".btn3").click(function () {
+        // Get the value from the text box
+        var inputValue = $("#textBox").val();
+
+        // Check if the input is not empty
+        if (inputValue.trim() !== "") {
+          // Append the input value as a new list item with delete button
+          // Use appendTo() to add the new item to the horizontal list
+          $("<li><div class=\"card-text\">" + inputValue + "</div><button type='button' class='btn btn-danger btn2'>X</button></li>").appendTo(".horizontal-list");
+
+          // Clear the input text box
+          $("#textBox").val("");
+        }
+      });
+
+      // Event delegation for delete button click
+      $(".horizontal-list").on("click", ".btn2", function () {
+        $(this).parent().remove();
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+.button4 {
+    border-radius: 18px;
+    background-color: rgb(145, 17, 145);
+    color: white;
+
+}
+
+.button5 {
+    border-radius: 18px;
+    color: rgb(145, 17, 145);
+    border-color: rgb(145, 17, 145);
+    background-color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-color: purple;
+    text-decoration-thickness: calc(20%);
+    text-underline-offset: calc(40%);
+}
+
+.c1:hover {
+    text-decoration: underline;
+    text-decoration-color: purple;
+    text-decoration-thickness: calc(20%);
+    text-underline-offset: calc(40%);
+}
